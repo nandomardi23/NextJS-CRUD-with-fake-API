@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aplikasi CRUD Sederhana Next Js, Tailwind CSS, DaisyUi & json-server
 
-## Getting Started
+### Next Js
 
-First, run the development server:
+Next Js merupakan framework yang dikembangkan berdasarkan React Js sebagai libary
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+untuk menginstall next maka harus menggunakan command:
+
+```
+    npx create-next-app@latest
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+setelah melakukan installation maka anda harus melakukan configuration yang ada pada terminal anda
+seperti pada dokumentasi
+https://nextjs.org/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tailwind CSS
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+tailwind css merupakan framework CSS yang berfungsi untuk memberikan keindahan pada tampilan website yang kita buat
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+```
 
-## Learn More
+setelah copy config yang ada dibawah ke dalam tailwind.config.js
 
-To learn more about Next.js, take a look at the following resources:
+```
+    module.exports = {
+        content: [
+            "./app/**/*.{js,ts,jsx,tsx,mdx}",
+            "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+            "./components/**/*.{js,ts,jsx,tsx,mdx}",
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+            // Or if using `src` directory:
+            "./src/**/*.{js,ts,jsx,tsx,mdx}",
+        ],
+        theme: {
+            extend: {},
+        },
+        plugins: [],
+    }
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ganti semua condingan yang ada pada file global.css dengan codingan yang sudah ada pada dibawah ini.
 
-## Deploy on Vercel
+```
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Daisy UI
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Daisy UI merupakan css framework yang memudahkan seperti bootsrap tetapi menggunakan base dari tailwind css sehingga tentu saja komponen yang ada tailwind css bisa digunakan di dalam daisyui ini, hal yang harus dilakukan adalah menginstall daisyui dengan menggunakan command yang ada dibawah ini
+
+```
+npm i daisyui
+```
+
+setelah menginstall kemabli ke file tailwind.config.js untuk menambahkan daisyui sebagain plugin seperti dibawah ini
+
+```
+
+    module.exports = {
+        content: [
+            './pages/**/*.{js,ts,jsx,tsx}',
+            './components/**/*.{js,ts,jsx,tsx}',
+            './app/**/*.{js,ts,jsx,tsx}',
+        ],
+        theme: {
+            extend: {},
+        },
+        plugins: [require('daisyui')],
+    }
+
+```
+
+jika semua step sudah dilakukan maka anda cuma harus mengikut semua yang ada pada folder products didalam folder app
+
+serta harus menginstall json-server
+
+```
+    npm i json-server
+```
+
+setelah sudah menginstall json-server maka harus membuat file db.json sebagai fake API yang akan berjalan dilocal komputer masing masing, sebagai fake API
